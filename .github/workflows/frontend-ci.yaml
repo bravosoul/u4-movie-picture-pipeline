@@ -69,6 +69,7 @@ jobs:
       run: npm ci
       
     - name: Docker Build
+      working-directory: starter/frontend
       run: 
         docker build -t mp-frontend:latest . --build-arg REACT_APP_MOVIE_API_URL="reactMovieURL"
     
