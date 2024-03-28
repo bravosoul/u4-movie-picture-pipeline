@@ -67,6 +67,10 @@ jobs:
     - name: Install Dependencies
       working-directory: starter/frontend
       run: npm ci
+      
+    - name: Docker Build
+      run: 
+        docker build -t mp-frontend:latest . --build-arg REACT_APP_MOVIE_API_URL="reactMovieURL"
     
     - name: Test Command
       run: cd starter/frontend && npm run test
