@@ -85,7 +85,8 @@ jobs:
     - name: Build and Push Docker Image
       working-directory: starter/frontend
       env:
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ github.sha }}
+        #IMAGE_TAG: latest
         REPO_NAME: frontend
       run: |
         docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag 845827442971.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG .
